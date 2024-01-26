@@ -1,12 +1,12 @@
 import { createApp } from "vue";
 import "./style.css";
+import "primevue/resources/themes/lara-light-purple/theme.css";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/index.vue";
 import RegistrationPage from "./pages/register/index.vue";
 import PlayPage from "./pages/play/index.vue";
 import { getUserFromStorage } from "./helpers/user";
-import "primevue/resources/themes/lara-light-purple/theme.css";
 import PrimeVue from "primevue/config";
 
 const routes = [

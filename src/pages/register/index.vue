@@ -6,6 +6,7 @@ import { helpers, maxLength, required } from "@vuelidate/validators";
 import { setUserToStorage } from "../../helpers/user.ts";
 import InputText from "primevue/inputtext";
 import Button from "primevue/button";
+import InfoCard from "../../components/InfoCard.vue";
 
 const router = useRouter();
 
@@ -34,39 +35,45 @@ function submitForm() {
 </script>
 
 <template>
-  <div>
-    <h2>Register</h2>
-    <form @submit.prevent="submitForm">
-      <div class="form-entry">
-        <label>Name:</label>
-        <div class="input-block">
-          <InputText size="small" type="text" v-model.trim="formData.name" />
-          <span class="error-text">{{
-            validator?.name?.$errors[0]?.$message
-          }}</span>
+  <InfoCard>
+    <template #header>Register</template>
+    <template #default>
+      <form @submit.prevent="submitForm">
+        <div class="form-entry">
+          <label>Name:</label>
+          <div class="input-block">
+            <InputText size="small" type="text" v-model.trim="formData.name" />
+            <span class="error-text">{{
+              validator?.name?.$errors[0]?.$message
+            }}</span>
+          </div>
         </div>
-      </div>
-      <Button type="submit">Submit</Button>
-    </form>
-  </div>
+        <Button type="submit">Submit</Button>
+      </form>
+    </template>
+  </InfoCard>
 </template>
 
 <style scoped>
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
 }
 .form-entry {
   display: flex;
   flex-direction: column;
   text-align: left;
-  gap: 10px;
+  gap: 5px;
+}
+label {
+  font-weight: 500;
 }
 .input-block {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 .error-text {
   color: red;

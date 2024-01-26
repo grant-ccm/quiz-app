@@ -12,15 +12,13 @@ const formattedScores = computed(() =>
 </script>
 
 <template>
-  <div class="container">
-    <DataTable :value="formattedScores" striped-rows>
-      <Column field="score" header="High Scores" />
+  <div>
+    <DataTable :value="formattedScores" striped-rows style="width: fit-content">
+      <Column
+        style="display: flex; justify-content: center"
+        field="score"
+        header="High Scores"
+      />
     </DataTable>
   </div>
 </template>
-
-<style scoped>
-.container {
-  margin: 20px 0px;
-}
-</style>

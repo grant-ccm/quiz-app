@@ -5,6 +5,7 @@ import { getUserFromStorage } from "../helpers/user";
 import { useRouter } from "vue-router";
 import Button from "primevue/button";
 import HighScoreBoard from "../components/HighScoreBoard.vue";
+import InfoCard from "../components/InfoCard.vue";
 
 const router = useRouter();
 
@@ -22,11 +23,30 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="user">
-    <h2>Welcome, {{ user.name }}</h2>
-    <HighScoreBoard :scores="user.highScores" />
-    <Button @click="startGame">Start</Button>
-  </div>
+  <InfoCard v-if="user">
+    <template #header> Welcome, {{ user.name }} </template>
+    <template #default>
+      <div class="body">
+        <HighScoreBoard
+          v-if="user.highScores.length"
+          :scores="user.highScores"
+        />
+        <h4 v-else>
+          No high scores yet...
+          <br />
+          Try playing a game!
+        </h4>
+        <Button @click="startGame">Start</Button>
+      </div>
+    </template>
+  </InfoCard>
 </template>
 
-<style scoped></style>
+<style scoped>
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+</style>
