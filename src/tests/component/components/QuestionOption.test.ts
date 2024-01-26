@@ -8,10 +8,11 @@ describe("Question Option Component", () => {
       props: {
         userChose: false,
         isCorrect: false,
+        text: "",
       },
     });
-    const card = wrapper.find("div");
-    expect(card.classes()).toStrictEqual([]);
+    const card = wrapper.find(".unselected");
+    expect(card.exists()).toBe(true);
   });
 
   test("Correct class applied on correct card after user has chosen", () => {
@@ -19,6 +20,7 @@ describe("Question Option Component", () => {
       props: {
         userChose: true,
         isCorrect: true,
+        text: "",
       },
     });
     const card = wrapper.find(".correct");
@@ -30,6 +32,7 @@ describe("Question Option Component", () => {
       props: {
         userChose: true,
         isCorrect: false,
+        text: "",
       },
     });
     const card = wrapper.find(".incorrect");

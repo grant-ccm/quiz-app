@@ -5,6 +5,7 @@ import MultiSelect from "primevue/multiselect";
 import SelectButton from "primevue/selectbutton";
 import Button from "primevue/button";
 import Slider from "primevue/slider";
+import InfoCard from "../InfoCard.vue";
 
 type FormData = {
   limit: number;
@@ -55,39 +56,41 @@ const submitForm = () => {
 </script>
 
 <template>
-  <div>
-    <h2>Customize Your Trivia</h2>
-    <form @submit.prevent="submitForm">
-      <div class="form-entry">
-        <label for="limit">Number of Questions: {{ formData.limit }}</label>
-        <Slider :min="1" :max="50" v-model="formData.limit" />
-      </div>
-      <div class="form-entry">
-        <label for="categories">Categories:</label>
-        <MultiSelect
-          class="multiselector"
-          v-model="formData.categories"
-          :max-selected-labels="2"
-          display="chip"
-          :options="categoryMapping"
-          optionLabel="name"
-          optionValue="key"
-          placeholder="Select your Categories"
-        />
-      </div>
-      <div class="form-entry">
-        <label for="categories">Difficulty:</label>
-        <SelectButton
-          v-model="formData.difficulty"
-          :options="difficultyMapping"
-          optionLabel="name"
-          optionValue="key"
-          aria-labelledby="basic"
-        />
-      </div>
-      <Button class="submit-button" type="submit">Start Game</Button>
-    </form>
-  </div>
+  <InfoCard>
+    <template #header> Customize Your Trivia </template>
+    <template #default>
+      <form @submit.prevent="submitForm">
+        <div class="form-entry">
+          <label for="limit">Number of Questions: {{ formData.limit }}</label>
+          <Slider :min="1" :max="50" v-model="formData.limit" />
+        </div>
+        <div class="form-entry">
+          <label for="categories">Categories:</label>
+          <MultiSelect
+            class="multiselector"
+            v-model="formData.categories"
+            :max-selected-labels="2"
+            display="chip"
+            :options="categoryMapping"
+            optionLabel="name"
+            optionValue="key"
+            placeholder="Select your Categories"
+          />
+        </div>
+        <div class="form-entry">
+          <label for="categories">Difficulty:</label>
+          <SelectButton
+            v-model="formData.difficulty"
+            :options="difficultyMapping"
+            optionLabel="name"
+            optionValue="key"
+            aria-labelledby="basic"
+          />
+        </div>
+        <Button class="submit-button" type="submit">Start Game</Button>
+      </form>
+    </template>
+  </InfoCard>
 </template>
 
 <style scoped>

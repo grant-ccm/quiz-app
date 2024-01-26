@@ -16,7 +16,7 @@ const colorClass = computed(() =>
 </script>
 
 <template>
-  <div :class="colorClass">{{ props.thisIndex }}</div>
+  <div :class="colorClass">{{ props.thisIndex + 1 }}</div>
 </template>
 
 <style scoped>
@@ -24,17 +24,17 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 .past {
-  background-color: rgb(69, 0, 69);
+  background-color: rgb(139, 0, 139);
 }
 .present {
-  background-color: rgb(170, 44, 170);
+  background-color: rgb(209, 57, 209);
 }
 .future {
-  background-color: rgb(220, 122, 220);
+  background-color: rgb(233, 136, 233);
 }
 </style>

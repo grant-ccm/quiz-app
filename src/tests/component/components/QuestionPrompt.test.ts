@@ -7,12 +7,19 @@ describe("Question Prompt Component", () => {
     const wrapper = mount(QuestionPrompt, {
       props: {
         question: {
+          id: "",
+          category: "music",
+          tags: [],
+          difficulty: "easy",
+          isNiche: false,
+          type: "text_choice",
           question: {
             text: "",
           },
           correctAnswer: "",
           incorrectAnswers: ["", "", ""],
         },
+        userChose: false,
       },
     });
 

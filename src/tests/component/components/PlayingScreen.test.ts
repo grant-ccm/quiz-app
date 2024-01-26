@@ -8,6 +8,12 @@ describe("Playing Screen Component", () => {
       props: {
         questions: [
           {
+            id: "",
+            category: "music",
+            tags: [],
+            difficulty: "easy",
+            isNiche: false,
+            type: "text_choice",
             question: {
               text: "",
             },
