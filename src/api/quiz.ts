@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Question, QuestionConfigOptions } from "../types/game";
-
-const API_URL = "https://the-trivia-api.com/v2";
+import { API_URL } from "../constants";
 
 // Max 50 limit
 export const getQuestions = async (

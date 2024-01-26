@@ -1,6 +1,5 @@
+import { USER_LOCAL_STORAGE_KEY } from "../constants";
 import { UserType } from "../types/user";
-
-const USER_LOCAL_STORAGE_KEY = "user";
 
 export const getUserFromStorage = (): UserType | undefined => {
   const res = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
