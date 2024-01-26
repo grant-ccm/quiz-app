@@ -47,19 +47,21 @@ const playAgain = () => {
 </script>
 
 <template>
-  <StartScreen
-    v-if="status === GameStates.Start"
-    @handleStartGame="startGame"
-  />
-  <PlayingScreen
-    v-else-if="status === GameStates.Playing"
-    :questions="questions"
-    @viewResults="viewResults"
-  />
-  <EndScreen
-    v-else
-    :score="score"
-    :total-count="questions.length"
-    @playAgain="playAgain"
-  />
+  <div>
+    <StartScreen
+      v-if="status === GameStates.Start"
+      @handleStartGame="startGame"
+    />
+    <PlayingScreen
+      v-else-if="status === GameStates.Playing"
+      :questions="questions"
+      @viewResults="viewResults"
+    />
+    <EndScreen
+      v-else
+      :score="score"
+      :total-count="questions.length"
+      @playAgain="playAgain"
+    />
+  </div>
 </template>
