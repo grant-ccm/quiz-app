@@ -14,7 +14,6 @@ export const updateUserScores = (newScore: number) => {
   const user = getUserFromStorage();
   if (!user) return;
   const newHighScores = [];
-  if (user.highScores.length === 0) newHighScores.push(newScore);
   let hasPushed = false;
   for (const score of user.highScores) {
     if (score < newScore && !hasPushed) {
@@ -23,5 +22,6 @@ export const updateUserScores = (newScore: number) => {
     }
     if (newHighScores.length < 10) newHighScores.push(score);
   }
+  if (!hasPushed && user.highScores.length < 10) newHighScores.push(newScore);
   setUserToStorage({ ...user, highScores: newHighScores });
 };

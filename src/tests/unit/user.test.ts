@@ -85,12 +85,8 @@ describe("User Local Storage Calls", () => {
     });
 
     test("Fewer than 10 scores so new score is added", () => {
-      const newScore = 9;
-      const expectedScores = [
-        ...fewerScores.slice(0, 1),
-        newScore,
-        ...fewerScores.slice(1),
-      ];
+      const newScore = 3;
+      const expectedScores = [...fewerScores, newScore];
       setUserToStorage(fewerThan10User);
       updateUserScores(newScore);
       expect(getUserFromStorage()?.highScores).toStrictEqual(expectedScores);
